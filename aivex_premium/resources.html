@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Resources – Aivex AI Learning Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Background orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="nav-logo"><a href="index.html" style="text-decoration: none; color: inherit;">Aivex</a></div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="resources.html" class="active">Resources</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <!-- RESOURCES HERO -->
+  <section class="hero" style="padding-top: 40px;">
+    <div class="hero-left">
+      <h1 class="hero-title">Learning Resources</h1>
+      <p class="hero-subtitle">
+        Explore interactive lessons, videos, quizzes, and downloadable materials to master AI concepts at your own pace.
+      </p>
+    </div>
+  </section>
+
+  <!-- RESOURCES CONTENT -->
+  <section class="section">
+    <!-- Filter Tabs -->
+    <div style="display: flex; gap: 10px; margin-bottom: 30px; flex-wrap: wrap;">
+      <button class="btn primary resource-filter active" data-filter="all">All Resources</button>
+      <button class="btn ghost resource-filter" data-filter="lessons">Lessons</button>
+      <button class="btn ghost resource-filter" data-filter="videos">Videos</button>
+      <button class="btn ghost resource-filter" data-filter="quizzes">Quizzes</button>
+      <button class="btn ghost resource-filter" data-filter="downloads">Downloads</button>
+    </div>
+
+    <!-- AI Tracks -->
+    <h2 class="section-title">AI Basics Track</h2>
+    <div class="resources-grid">
+      <div class="resource-card" data-type="lessons">
+        <div class="resource-icon">📖</div>
+        <h3>What is AI?</h3>
+        <p>Introduction to artificial intelligence, machine learning, and how AI systems work.</p>
+        <div class="resource-meta">
+          <span>Lesson • 15 min</span>
+          <span class="resource-status completed">Completed</span>
+        </div>
+        <button class="btn primary resource-btn">Start Lesson</button>
+      </div>
+
+      <div class="resource-card" data-type="videos">
+        <div class="resource-icon">🎥</div>
+        <h3>AI Explained Simply</h3>
+        <p>Visual explanation of AI concepts with real-world examples and animations.</p>
+        <div class="resource-meta">
+          <span>Video • 8 min</span>
+          <span class="resource-status completed">Watched</span>
+        </div>
+        <button class="btn primary resource-btn">Watch Video</button>
+      </div>
+
+      <div class="resource-card" data-type="quizzes">
+        <div class="resource-icon">📝</div>
+        <h3>AI Basics Quiz</h3>
+        <p>Test your understanding of AI fundamentals with 10 interactive questions.</p>
+        <div class="resource-meta">
+          <span>Quiz • 10 questions</span>
+          <span class="resource-status score">Score: 92%</span>
+        </div>
+        <button class="btn primary resource-btn">Take Quiz</button>
+      </div>
+
+      <div class="resource-card" data-type="downloads">
+        <div class="resource-icon">📄</div>
+        <h3>AI Glossary PDF</h3>
+        <p>Downloadable reference guide with key AI terms and definitions.</p>
+        <div class="resource-meta">
+          <span>PDF • 2.3 MB</span>
+          <span class="resource-status">Download</span>
+        </div>
+        <button class="btn primary resource-btn">Download</button>
+      </div>
+    </div>
+
+    <h2 class="section-title" style="margin-top: 50px;">AI for School Track</h2>
+    <div class="resources-grid">
+      <div class="resource-card" data-type="lessons">
+        <div class="resource-icon">📖</div>
+        <h3>Using AI for Study Notes</h3>
+        <p>Learn how to use AI tools to create, organize, and enhance your study notes.</p>
+        <div class="resource-meta">
+          <span>Lesson • 20 min</span>
+          <span class="resource-status in-progress">In Progress</span>
+        </div>
+        <button class="btn primary resource-btn">Continue</button>
+      </div>
+
+      <div class="resource-card" data-type="videos">
+        <div class="resource-icon">🎥</div>
+        <h3>AI Study Tools Demo</h3>
+        <p>Watch demonstrations of popular AI study tools and how to use them effectively.</p>
+        <div class="resource-meta">
+          <span>Video • 12 min</span>
+          <span class="resource-status">Not Watched</span>
+        </div>
+        <button class="btn primary resource-btn">Watch Video</button>
+      </div>
+
+      <div class="resource-card" data-type="quizzes">
+        <div class="resource-icon">📝</div>
+        <h3>AI Study Tools Quiz</h3>
+        <p>Test your knowledge of using AI for academic purposes.</p>
+        <div class="resource-meta">
+          <span>Quiz • 8 questions</span>
+          <span class="resource-status score">Score: 85%</span>
+        </div>
+        <button class="btn primary resource-btn">Retake Quiz</button>
+      </div>
+
+      <div class="resource-card" data-type="downloads">
+        <div class="resource-icon">📄</div>
+        <h3>AI Prompt Templates</h3>
+        <p>Ready-to-use prompt templates for common school tasks and projects.</p>
+        <div class="resource-meta">
+          <span>PDF • 1.8 MB</span>
+          <span class="resource-status">Download</span>
+        </div>
+        <button class="btn primary resource-btn">Download</button>
+      </div>
+    </div>
+
+    <h2 class="section-title" style="margin-top: 50px;">AI in the Real World Track</h2>
+    <div class="resources-grid">
+      <div class="resource-card" data-type="lessons">
+        <div class="resource-icon">📖</div>
+        <h3>AI in Healthcare</h3>
+        <p>Explore how AI is revolutionizing medical diagnosis and treatment.</p>
+        <div class="resource-meta">
+          <span>Lesson • 18 min</span>
+          <span class="resource-status completed">Completed</span>
+        </div>
+        <button class="btn primary resource-btn">Review</button>
+      </div>
+
+      <div class="resource-card" data-type="videos">
+        <div class="resource-icon">🎥</div>
+        <h3>Self-Driving Cars & AI</h3>
+        <p>Learn how AI powers autonomous vehicles and transportation systems.</p>
+        <div class="resource-meta">
+          <span>Video • 10 min</span>
+          <span class="resource-status completed">Watched</span>
+        </div>
+        <button class="btn primary resource-btn">Watch Again</button>
+      </div>
+
+      <div class="resource-card" data-type="quizzes">
+        <div class="resource-icon">📝</div>
+        <h3>Real World AI Quiz</h3>
+        <p>Test your knowledge of AI applications in various industries.</p>
+        <div class="resource-meta">
+          <span>Quiz • 12 questions</span>
+          <span class="resource-status score">Score: 78%</span>
+        </div>
+        <button class="btn primary resource-btn">Retake Quiz</button>
+      </div>
+
+      <div class="resource-card" data-type="downloads">
+        <div class="resource-icon">📄</div>
+        <h3>AI Case Studies</h3>
+        <p>Real-world examples of AI implementation across different sectors.</p>
+        <div class="resource-meta">
+          <span>PDF • 3.1 MB</span>
+          <span class="resource-status">Download</span>
+        </div>
+        <button class="btn primary resource-btn">Download</button>
+      </div>
+    </div>
+
+    <h2 class="section-title" style="margin-top: 50px;">AI & Ethics Track</h2>
+    <div class="resources-grid">
+      <div class="resource-card" data-type="lessons">
+        <div class="resource-icon">📖</div>
+        <h3>Understanding AI Bias</h3>
+        <p>Learn about bias in AI systems and how to recognize and address it.</p>
+        <div class="resource-meta">
+          <span>Lesson • 22 min</span>
+          <span class="resource-status">Not Started</span>
+        </div>
+        <button class="btn primary resource-btn">Start Lesson</button>
+      </div>
+
+      <div class="resource-card" data-type="videos">
+        <div class="resource-icon">🎥</div>
+        <h3>Deepfakes & Digital Ethics</h3>
+        <p>Understanding deepfakes, their implications, and how to spot them.</p>
+        <div class="resource-meta">
+          <span>Video • 15 min</span>
+          <span class="resource-status">Not Watched</span>
+        </div>
+        <button class="btn primary resource-btn">Watch Video</button>
+      </div>
+
+      <div class="resource-card" data-type="quizzes">
+        <div class="resource-icon">📝</div>
+        <h3>AI Ethics Quiz</h3>
+        <p>Test your understanding of ethical considerations in AI development and use.</p>
+        <div class="resource-meta">
+          <span>Quiz • 10 questions</span>
+          <span class="resource-status">Not Taken</span>
+        </div>
+        <button class="btn primary resource-btn">Take Quiz</button>
+      </div>
+
+      <div class="resource-card" data-type="downloads">
+        <div class="resource-icon">📄</div>
+        <h3>AI Safety Guide</h3>
+        <p>Comprehensive guide to using AI safely and responsibly in academic settings.</p>
+        <div class="resource-meta">
+          <span>PDF • 2.7 MB</span>
+          <span class="resource-status">Download</span>
+        </div>
+        <button class="btn primary resource-btn">Download</button>
+      </div>
+    </div>
+
+    <!-- Interactive Tools Section -->
+    <h2 class="section-title" style="margin-top: 50px;">Interactive Tools</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>AI Concept Explorer</h3>
+        <p>Interactive visual tool to explore how neural networks process information.</p>
+        <button class="btn primary" style="margin-top: 10px;">Launch Tool</button>
+      </div>
+      <div class="card">
+        <h3>Prompt Builder</h3>
+        <p>Build and test AI prompts with real-time feedback and suggestions.</p>
+        <button class="btn primary" style="margin-top: 10px;">Launch Tool</button>
+      </div>
+      <div class="card">
+        <h3>AI Quiz Generator</h3>
+        <p>Create custom quizzes on AI topics to test yourself or study with friends.</p>
+        <button class="btn primary" style="margin-top: 10px;">Launch Tool</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; Aivex – Student AI Learning Hub</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    // Filter functionality
+    const resourceFilters = document.querySelectorAll('.resource-filter');
+    const resourceCards = document.querySelectorAll('.resource-card');
+
+    resourceFilters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        resourceFilters.forEach(b => {
+          b.classList.remove('active');
+          if (b.classList.contains('primary')) {
+            b.classList.remove('primary');
+            b.classList.add('ghost');
+          }
+        });
+        btn.classList.add('active');
+        if (btn.classList.contains('ghost')) {
+          btn.classList.remove('ghost');
+          btn.classList.add('primary');
+        }
+
+        const filter = btn.dataset.filter;
+        resourceCards.forEach(card => {
+          if (filter === 'all' || card.dataset.type === filter) {
+            card.style.display = 'block';
+            gsap.fromTo(card, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3 });
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Resource button interactions
+    document.querySelectorAll('.resource-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const originalText = btn.textContent;
+        btn.textContent = 'Loading...';
+        setTimeout(() => {
+          btn.textContent = '✓ Opened';
+          setTimeout(() => {
+            btn.textContent = originalText;
+          }, 1500);
+        }, 500);
+      });
+    });
+
+    // Animate cards on load
+    gsap.utils.toArray('.resource-card, .card').forEach((card, i) => {
+      gsap.from(card, {
+        scrollTrigger: { trigger: card, start: 'top 85%' },
+        opacity: 0,
+        y: 30,
+        duration: 0.5,
+        delay: i * 0.05,
+        ease: 'power2.out'
+      });
+    });
+  </script>
+</body>
+</html>
+

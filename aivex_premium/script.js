@@ -2,32 +2,36 @@ gsap.registerPlugin(ScrollTrigger);
 
 // INTRO OVERLAY + NAV + HERO
 window.addEventListener("load", () => {
-  const tl = gsap.timeline();
+  const introOverlay = document.querySelector(".intro-overlay");
+  const delay = introOverlay ? 1.1 : 0;
+  
+  if (introOverlay) {
+    const tl = gsap.timeline();
 
-  tl.from(".intro-logo", {
-    opacity: 0,
-    y: 20,
-    scale: 0.9,
-    duration: 0.6,
-    ease: "power2.out",
-  })
-    .from(
-      ".intro-tagline",
-      { opacity: 0, y: 10, duration: 0.5, ease: "power2.out" },
-      "-=0.3"
-    )
-    .to(".intro-overlay", {
+    tl.from(".intro-logo", {
       opacity: 0,
+      y: 20,
+      scale: 0.9,
       duration: 0.6,
-      delay: 0.4,
-      ease: "power2.inOut",
-      onComplete: () => {
-        const el = document.querySelector(".intro-overlay");
-        if (el) el.style.display = "none";
-      },
-    });
+      ease: "power2.out",
+    })
+      .from(
+        ".intro-tagline",
+        { opacity: 0, y: 10, duration: 0.5, ease: "power2.out" },
+        "-=0.3"
+      )
+      .to(".intro-overlay", {
+        opacity: 0,
+        duration: 0.6,
+        delay: 0.4,
+        ease: "power2.inOut",
+        onComplete: () => {
+          if (introOverlay) introOverlay.style.display = "none";
+        },
+      });
+  }
 
-  const heroTl = gsap.timeline({ delay: 1.1 });
+  const heroTl = gsap.timeline({ delay: delay });
 
   heroTl
     .from(".nav-logo", {
@@ -110,6 +114,27 @@ window.addEventListener("load", () => {
       },
       "-=0.4"
     );
+  
+  // Animate hero elements on other pages too
+  if (!introOverlay) {
+    heroTl
+      .from(".hero-title", {
+        opacity: 0,
+        y: 20,
+        duration: 0.5,
+        ease: "power2.out",
+      })
+      .from(
+        ".hero-subtitle",
+        {
+          opacity: 0,
+          y: 15,
+          duration: 0.4,
+          ease: "power2.out",
+        },
+        "-=0.2"
+      );
+  }
 });
 
 // FLOATING ORBS
