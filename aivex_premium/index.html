@@ -55,37 +55,50 @@
       </div>
 
       <div class="hero-right">
-        <div class="ai-node-grid">
-          <div class="node-row">
-            <div class="node"></div>
-            <div class="node"></div>
-            <div class="node"></div>
-          </div>
-          <div class="node-row">
-            <div class="node"></div>
-            <div class="node"></div>
-            <div class="node"></div>
-          </div>
-          <div class="node-row">
-            <div class="node"></div>
-            <div class="node"></div>
-            <div class="node"></div>
-          </div>
+        <div class="hero-media">
+          <video id="bgVideo" class="bg-video" autoplay muted loop playsinline>
+            <!-- Replace the src with your video file path (mp4/webm). -->
+            <source src="assets/hero-bg.mp4" type="video/mp4" />
+            <!-- Fallback text -->
+            Your browser does not support the video tag.
+          </video>
 
-          <svg
-            class="node-lines"
-            viewBox="0 0 200 200"
-            preserveAspectRatio="none"
-          >
-            <line x1="20" y1="40" x2="100" y2="100" />
-            <line x1="100" y1="100" x2="180" y2="60" />
-            <line x1="60" y1="160" x2="100" y2="100" />
-            <line x1="140" y1="160" x2="100" y2="100" />
-          </svg>
+          <div class="ai-node-grid">
+            <div class="node-row">
+              <div class="node"></div>
+              <div class="node"></div>
+              <div class="node"></div>
+            </div>
+            <div class="node-row">
+              <div class="node"></div>
+              <div class="node"></div>
+              <div class="node"></div>
+            </div>
+            <div class="node-row">
+              <div class="node"></div>
+              <div class="node"></div>
+              <div class="node"></div>
+            </div>
 
-          <div class="ai-label">
-            <span>Neural Network</span>
-            <p>Animated to show how AI connects ideas.</p>
+            <svg
+              class="node-lines"
+              viewBox="0 0 200 200"
+              preserveAspectRatio="none"
+            >
+              <line x1="20" y1="40" x2="100" y2="100" />
+              <line x1="100" y1="100" x2="180" y2="60" />
+              <line x1="60" y1="160" x2="100" y2="100" />
+              <line x1="140" y1="160" x2="100" y2="100" />
+            </svg>
+
+            <div class="ai-label">
+              <span>Neural Network</span>
+              <p>Animated to show how AI connects ideas.</p>
+            </div>
+
+            <button class="video-toggle" aria-label="Toggle background video">
+              🔈
+            </button>
           </div>
         </div>
       </div>
