@@ -23,7 +23,11 @@
 
     <!-- NAVBAR -->
     <header class="nav quantum-nav">
-      <div class="nav-logo"><a href="index.html" style="text-decoration: none; color: inherit;">Aivex</a></div>
+      <div class="nav-logo">
+        <a href="index.html" style="text-decoration: none; color: inherit"
+          >Aivex</a
+        >
+      </div>
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="resources.html">Resources</a>
@@ -40,16 +44,49 @@
             THE FUTURE IS<span class="accent-dot"> AI</span>.
           </h1>
           <p class="hero-subtitle-large">
-            Aivex is a student-built AI learning hub where peers teach each other
-            what AI is, how it works, and how to use it safely for school.
+            Aivex is a student-built AI learning hub where peers teach each
+            other what AI is, how it works, and how to use it safely for school.
           </p>
           <div class="hero-actions">
             <a href="resources.html" class="btn primary">Start Learning</a>
             <a href="dashboard.html" class="btn ghost">View Dashboard</a>
           </div>
         </div>
-        <div class="hero-3d-container">
-          <canvas id="gyroscope-canvas"></canvas>
+      </div>
+
+      <div class="hero-right">
+        <div class="ai-node-grid">
+          <div class="node-row">
+            <div class="node"></div>
+            <div class="node"></div>
+            <div class="node"></div>
+          </div>
+          <div class="node-row">
+            <div class="node"></div>
+            <div class="node"></div>
+            <div class="node"></div>
+          </div>
+          <div class="node-row">
+            <div class="node"></div>
+            <div class="node"></div>
+            <div class="node"></div>
+          </div>
+
+          <svg
+            class="node-lines"
+            viewBox="0 0 200 200"
+            preserveAspectRatio="none"
+          >
+            <line x1="20" y1="40" x2="100" y2="100" />
+            <line x1="100" y1="100" x2="180" y2="60" />
+            <line x1="60" y1="160" x2="100" y2="100" />
+            <line x1="140" y1="160" x2="100" y2="100" />
+          </svg>
+
+          <div class="ai-label">
+            <span>Neural Network</span>
+            <p>Animated to show how AI connects ideas.</p>
+          </div>
         </div>
       </div>
       <div class="hero-wave"></div>

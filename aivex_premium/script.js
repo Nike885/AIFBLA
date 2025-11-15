@@ -12,7 +12,7 @@ window.addEventListener("scroll", () => {
 window.addEventListener("load", () => {
   const introOverlay = document.querySelector(".intro-overlay");
   const delay = introOverlay ? 1.1 : 0;
-  
+
   if (introOverlay) {
     const tl = gsap.timeline();
 
@@ -122,7 +122,7 @@ window.addEventListener("load", () => {
       },
       "-=0.4"
     );
-  
+
   // Animate hero elements on other pages too
   if (!introOverlay) {
     heroTl
@@ -630,6 +630,44 @@ gsap.to(".ai-label", {
   ease: "sine.inOut",
   textShadow: "0 0 20px rgba(34, 211, 238, 0.5)",
 });
+
+// BACKGROUND VIDEO CONTROLS + VISIBILITY
+(() => {
+  const video = document.getElementById("bgVideo");
+  const toggle = document.querySelector(".video-toggle");
+  if (!video || !toggle) return;
+
+  // Update toggle label depending on mute state
+  function updateToggleLabel() {
+    toggle.textContent = video.muted ? "🔈" : "🔊";
+  }
+
+  toggle.addEventListener("click", () => {
+    // Toggle mute on click
+    video.muted = !video.muted;
+    updateToggleLabel();
+  });
+
+  // Pause/play depending on visibility for perf
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const playPromise = video.play();
+          if (playPromise && typeof playPromise.then === "function") {
+            playPromise.catch(() => {});
+          }
+        } else {
+          video.pause();
+        }
+      });
+    },
+    { threshold: 0.25 }
+  );
+
+  io.observe(video);
+  updateToggleLabel();
+})();
 
 // SMOOTH SECTION TRANSITIONS
 gsap.utils.toArray(".section").forEach((section, i) => {
