@@ -394,3 +394,254 @@ window.addEventListener("scroll", () => {
     });
   }
 });
+
+// STAT PILLS COUNTER ANIMATION
+gsap.utils.toArray(".stat-pill").forEach((pill) => {
+  gsap.to(pill, {
+    scrollTrigger: {
+      trigger: pill,
+      start: "top 80%",
+      toggleActions: "play none none reverse",
+    },
+    duration: 0.5,
+    ease: "power2.out",
+    onStart: function () {
+      const numElement = pill.querySelector(".stat-num");
+      if (!numElement) return;
+      const finalValue = numElement.textContent;
+
+      if (!isNaN(finalValue)) {
+        gsap.to(
+          { value: 0 },
+          {
+            value: parseInt(finalValue),
+            duration: 1.2,
+            ease: "power2.out",
+            onUpdate: function () {
+              numElement.textContent = Math.floor(this.targets()[0].value);
+            },
+          }
+        );
+      }
+    },
+  });
+});
+
+// CHIP BADGES BOUNCE IN
+gsap.utils.toArray(".chip").forEach((chip, i) => {
+  gsap.from(chip, {
+    scrollTrigger: {
+      trigger: chip,
+      start: "top 85%",
+      toggleActions: "play none none reverse",
+    },
+    opacity: 0,
+    scale: 0.6,
+    y: 10,
+    duration: 0.4,
+    ease: "back.out(3)",
+    delay: i * 0.08,
+  });
+});
+
+// SECTION SUBTITLES FADE & SCALE
+gsap.utils.toArray(".section-subtitle").forEach((subtitle) => {
+  gsap.from(subtitle, {
+    scrollTrigger: {
+      trigger: subtitle,
+      start: "top 80%",
+      toggleActions: "play none none reverse",
+    },
+    opacity: 0,
+    y: 15,
+    scale: 0.98,
+    duration: 0.6,
+    ease: "power2.out",
+  });
+});
+
+// FAQ CARD HOVER - TILT EFFECT
+document.querySelectorAll(".faq-card").forEach((card) => {
+  card.addEventListener("mouseenter", () => {
+    gsap.to(card, {
+      y: -8,
+      boxShadow: "0 15px 35px rgba(34, 211, 238, 0.2)",
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  });
+  card.addEventListener("mouseleave", () => {
+    gsap.to(card, {
+      y: 0,
+      boxShadow: "0 10px 25px rgba(0, 0, 0, 0.05)",
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  });
+});
+
+// TIMELINE ITEM HOVER
+document.querySelectorAll(".timeline-item").forEach((item) => {
+  item.addEventListener("mouseenter", () => {
+    gsap.to(item, {
+      x: 10,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+    gsap.to(item.querySelector("h3"), {
+      color: "#22d3ee",
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  });
+  item.addEventListener("mouseleave", () => {
+    gsap.to(item, {
+      x: 0,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+    gsap.to(item.querySelector("h3"), {
+      color: "#1e293b",
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  });
+});
+
+// METRIC NUMBER PULSE ON VIEW
+gsap.utils.toArray(".metric-number").forEach((num) => {
+  gsap.to(num, {
+    scrollTrigger: {
+      trigger: num,
+      start: "top 80%",
+      toggleActions: "play none none reverse",
+    },
+    opacity: 1,
+    fontSize: "2.25rem",
+    duration: 0.6,
+    ease: "elastic.out(1.2, 0.5)",
+    onStart: function () {
+      num.style.opacity = "0.7";
+      num.style.fontSize = "1.875rem";
+    },
+  });
+});
+
+// CARD GRID STAGGER WITH ROTATION
+gsap.utils.toArray(".card-grid .card").forEach((card, i) => {
+  gsap.from(card, {
+    scrollTrigger: {
+      trigger: card,
+      start: "top 85%",
+      toggleActions: "play none none reverse",
+    },
+    opacity: 0,
+    y: 30,
+    x: i % 2 === 0 ? -20 : 20,
+    rotation: i % 2 === 0 ? -2 : 2,
+    duration: 0.6,
+    ease: "power3.out",
+    delay: i * 0.1,
+  });
+});
+
+// HERO TITLE CHARACTER SPLIT ANIMATION
+const heroTitle = document.querySelector(".hero-title");
+if (heroTitle) {
+  const text = heroTitle.textContent;
+  heroTitle.textContent = "";
+
+  const chars = text.split("").map((char) => {
+    const span = document.createElement("span");
+    span.textContent = char;
+    span.style.display = char === "\n" ? "block" : "inline";
+    span.style.opacity = "0";
+    span.style.display = "inline-block";
+    heroTitle.appendChild(span);
+    return span;
+  });
+
+  gsap.to(chars, {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    stagger: 0.02,
+    ease: "power2.out",
+    delay: 1.3,
+  });
+}
+
+// NAV LINKS UNDERLINE ANIMATION
+document.querySelectorAll(".nav-links a").forEach((link) => {
+  const underline = document.createElement("span");
+  underline.style.position = "absolute";
+  underline.style.bottom = "0";
+  underline.style.left = "0";
+  underline.style.width = "100%";
+  underline.style.height = "2px";
+  underline.style.background = "#22d3ee";
+  underline.style.scaleX = "0";
+  underline.style.transformOrigin = "left";
+  underline.style.pointerEvents = "none";
+
+  link.style.position = "relative";
+  link.appendChild(underline);
+
+  link.addEventListener("mouseenter", () => {
+    gsap.to(underline, {
+      scaleX: 1,
+      duration: 0.4,
+      ease: "power2.out",
+    });
+  });
+
+  link.addEventListener("mouseleave", () => {
+    gsap.to(underline, {
+      scaleX: 0,
+      duration: 0.4,
+      ease: "power2.out",
+    });
+  });
+});
+
+// FOOTER TEXT FADE IN
+gsap.from(".footer p", {
+  scrollTrigger: {
+    trigger: ".footer",
+    start: "top 90%",
+    toggleActions: "play none none reverse",
+  },
+  opacity: 0,
+  y: 10,
+  duration: 0.5,
+  ease: "power2.out",
+});
+
+// AI LABEL PULSE & GLOW
+gsap.to(".ai-label", {
+  scrollTrigger: {
+    trigger: ".ai-label",
+    start: "top 70%",
+    toggleActions: "play none none reverse",
+  },
+  duration: 2,
+  repeat: -1,
+  yoyo: true,
+  ease: "sine.inOut",
+  textShadow: "0 0 20px rgba(34, 211, 238, 0.5)",
+});
+
+// SMOOTH SECTION TRANSITIONS
+gsap.utils.toArray(".section").forEach((section, i) => {
+  if (i > 0) {
+    gsap.from(section, {
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80%",
+      },
+      opacity: 0,
+      duration: 0.6,
+      ease: "power2.out",
+    });
+  }
+});
