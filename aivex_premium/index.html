@@ -1,218 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Aivex – AI Learning Hub</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <!-- Intro overlay -->
-  <div class="intro-overlay">
-    <div class="intro-inner">
-      <div class="intro-logo">Aivex</div>
-      <p class="intro-tagline">Future-ready AI learning for students.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Aivex – AI Learning Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Intro overlay -->
+    <div class="intro-overlay">
+      <div class="intro-inner">
+        <div class="intro-logo">Aivex</div>
+        <p class="intro-tagline">Future-ready AI learning for students.</p>
+      </div>
     </div>
-  </div>
 
-  <!-- Background orbs -->
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
+    <!-- Background orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
 
-  <!-- NAVBAR -->
-  <header class="nav">
-    <div class="nav-logo"><a href="index.html" style="text-decoration: none; color: inherit;">Aivex</a></div>
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="resources.html">Resources</a>
-      <a href="schedule.html">Schedule</a>
-      <a href="dashboard.html">Dashboard</a>
-    </nav>
-  </header>
+    <!-- NAVBAR -->
+    <header class="nav">
+      <div class="nav-logo">Aivex</div>
+      <nav class="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#tracks">Tracks</a>
+        <a href="#how">How It Works</a>
+        <a href="#community">Community</a>
+      </nav>
+    </header>
 
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="hero-left">
-      <h1 class="hero-title">
-        Learn AI.<br />
-        Together. ⚡
-      </h1>
-      <p class="hero-subtitle">
-        Aivex is a student-built AI learning hub where peers teach each other
-        what AI is, how it works, and how to use it safely for school.
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-left">
+        <h1 class="hero-title">
+          Learn AI.<br />
+          Together. ⚡
+        </h1>
+        <p class="hero-subtitle">
+          Aivex is a student-built AI learning hub where peers teach each other
+          what AI is, how it works, and how to use it safely for school.
+        </p>
+        <div class="hero-actions">
+          <button class="btn primary">Start Learning</button>
+          <button class="btn ghost">Watch Intro</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-pill">
+            <span class="stat-num">12</span>
+            <span class="stat-label">Mini Lessons</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-num">4</span>
+            <span class="stat-label">AI Tracks</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-num">P2P</span>
+            <span class="stat-label">Peer Learning</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="ai-node-grid">
+          <div class="node-row">
+            <div class="node"></div>
+            <div class="node"></div>
+            <div class="node"></div>
+          </div>
+          <div class="node-row">
+            <div class="node"></div>
+            <div class="node"></div>
+            <div class="node"></div>
+          </div>
+          <div class="node-row">
+            <div class="node"></div>
+            <div class="node"></div>
+            <div class="node"></div>
+          </div>
+
+          <svg
+            class="node-lines"
+            viewBox="0 0 200 200"
+            preserveAspectRatio="none"
+          >
+            <line x1="20" y1="40" x2="100" y2="100" />
+            <line x1="100" y1="100" x2="180" y2="60" />
+            <line x1="60" y1="160" x2="100" y2="100" />
+            <line x1="140" y1="160" x2="100" y2="100" />
+          </svg>
+
+          <div class="ai-label">
+            <span>Neural Network</span>
+            <p>Animated to show how AI connects ideas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACKS -->
+    <section class="section" id="tracks">
+      <h2 class="section-title">AI Tracks You Can Learn</h2>
+      <p class="section-subtitle">
+        Aivex breaks AI into student-friendly tracks so you can learn at your
+        own pace and help friends catch up.
       </p>
-      <div class="hero-actions">
-        <a href="resources.html" class="btn primary" style="text-decoration: none; display: inline-block;">Start Learning</a>
-        <a href="dashboard.html" class="btn ghost" style="text-decoration: none; display: inline-block;">View Dashboard</a>
+
+      <div class="card-grid">
+        <article class="card track-card">
+          <h3>AI Basics</h3>
+          <p>
+            What AI is, how it learns from data, and where you see it in daily
+            life.
+          </p>
+          <span class="chip">Start Here</span>
+        </article>
+        <article class="card track-card">
+          <h3>AI for School</h3>
+          <p>
+            How to use AI for studying, notes, practice questions, and projects.
+          </p>
+          <span class="chip">Study Help</span>
+        </article>
+        <article class="card track-card">
+          <h3>AI in the Real World</h3>
+          <p>
+            AI in medicine, cars, games, and social media — explained simply.
+          </p>
+          <span class="chip">Real Examples</span>
+        </article>
+        <article class="card track-card">
+          <h3>AI &amp; Ethics</h3>
+          <p>
+            Deepfakes, bias, privacy, and how to use AI responsibly with
+            classmates.
+          </p>
+          <span class="chip">Stay Safe</span>
+        </article>
       </div>
-      <div class="hero-stats">
-        <div class="stat-pill">
-          <span class="stat-num">12</span>
-          <span class="stat-label">Mini Lessons</span>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section section-alt" id="how">
+      <h2 class="section-title">How Aivex Works as a Peer Hub</h2>
+      <p class="section-subtitle">
+        Aivex is built around students teaching students — with short lessons,
+        group sessions, and shared tips on using AI the right way.
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="bubble">1</div>
+          <h3>Learn a Mini Lesson</h3>
+          <p>
+            Short, visual explainers on AI topics with examples and quick
+            checks.
+          </p>
         </div>
-        <div class="stat-pill">
-          <span class="stat-num">4</span>
-          <span class="stat-label">AI Tracks</span>
+        <div class="timeline-item">
+          <div class="bubble">2</div>
+          <h3>Practice with Friends</h3>
+          <p>Small group activities where you test AI tools together.</p>
         </div>
-        <div class="stat-pill">
-          <span class="stat-num">P2P</span>
-          <span class="stat-label">Peer Learning</span>
+        <div class="timeline-item">
+          <div class="bubble">3</div>
+          <h3>Share What Worked</h3>
+          <p>
+            Students submit tips, prompts, and workflows that helped them learn.
+          </p>
         </div>
-      </div>
-    </div>
-
-    <div class="hero-right">
-      <div class="ai-node-grid">
-        <div class="node-row">
-          <div class="node"></div>
-          <div class="node"></div>
-          <div class="node"></div>
-        </div>
-        <div class="node-row">
-          <div class="node"></div>
-          <div class="node"></div>
-          <div class="node"></div>
-        </div>
-        <div class="node-row">
-          <div class="node"></div>
-          <div class="node"></div>
-          <div class="node"></div>
-        </div>
-
-        <svg class="node-lines" viewBox="0 0 200 200" preserveAspectRatio="none">
-          <line x1="20" y1="40" x2="100" y2="100" />
-          <line x1="100" y1="100" x2="180" y2="60" />
-          <line x1="60" y1="160" x2="100" y2="100" />
-          <line x1="140" y1="160" x2="100" y2="100" />
-        </svg>
-
-        <div class="ai-label">
-          <span>Neural Network</span>
-          <p>Animated to show how AI connects ideas.</p>
+        <div class="timeline-item">
+          <div class="bubble">4</div>
+          <h3>Track Your Progress</h3>
+          <p>
+            See completed tracks, quiz scores, and how your AI confidence grows.
+          </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- TRACKS -->
-  <section class="section" id="tracks">
-    <h2 class="section-title">AI Tracks You Can Learn</h2>
-    <p class="section-subtitle">
-      Aivex breaks AI into student-friendly tracks so you can learn at your own pace
-      and help friends catch up.
-    </p>
+    <!-- COMMUNITY / METRICS -->
+    <section class="section" id="community">
+      <h2 class="section-title">Peer Learning Metrics</h2>
+      <p class="section-subtitle">
+        Simple visuals show how the Aivex community is learning together.
+      </p>
 
-    <div class="card-grid">
-      <article class="card track-card">
-        <h3>AI Basics</h3>
-        <p>What AI is, how it learns from data, and where you see it in daily life.</p>
-        <span class="chip">Start Here</span>
-      </article>
-      <article class="card track-card">
-        <h3>AI for School</h3>
-        <p>How to use AI for studying, notes, practice questions, and projects.</p>
-        <span class="chip">Study Help</span>
-      </article>
-      <article class="card track-card">
-        <h3>AI in the Real World</h3>
-        <p>AI in medicine, cars, games, and social media — explained simply.</p>
-        <span class="chip">Real Examples</span>
-      </article>
-      <article class="card track-card">
-        <h3>AI &amp; Ethics</h3>
-        <p>Deepfakes, bias, privacy, and how to use AI responsibly with classmates.</p>
-        <span class="chip">Stay Safe</span>
-      </article>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="section section-alt" id="how">
-    <h2 class="section-title">How Aivex Works as a Peer Hub</h2>
-    <p class="section-subtitle">
-      Aivex is built around students teaching students — with short lessons, group sessions,
-      and shared tips on using AI the right way.
-    </p>
-
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="bubble">1</div>
-        <h3>Learn a Mini Lesson</h3>
-        <p>Short, visual explainers on AI topics with examples and quick checks.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="bubble">2</div>
-        <h3>Practice with Friends</h3>
-        <p>Small group activities where you test AI tools together.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="bubble">3</div>
-        <h3>Share What Worked</h3>
-        <p>Students submit tips, prompts, and workflows that helped them learn.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="bubble">4</div>
-        <h3>Track Your Progress</h3>
-        <p>See completed tracks, quiz scores, and how your AI confidence grows.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- COMMUNITY / METRICS -->
-  <section class="section" id="community">
-    <h2 class="section-title">Peer Learning Metrics</h2>
-    <p class="section-subtitle">
-      Simple visuals show how the Aivex community is learning together.
-    </p>
-
-    <div class="metrics-grid">
-      <div class="metric-card">
-        <h3>Tracks Completed</h3>
-        <div class="progress-ring">
-          <div class="ring-inner">68%</div>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <h3>Tracks Completed</h3>
+          <div class="progress-ring">
+            <div class="ring-inner">68%</div>
+          </div>
+          <p>Average percent of AI tracks completed by active students.</p>
         </div>
-        <p>Average percent of AI tracks completed by active students.</p>
+        <div class="metric-card">
+          <h3>Study Sessions</h3>
+          <h4 class="metric-number">24 / week</h4>
+          <p>Peer-led AI study blocks scheduled by students and teachers.</p>
+        </div>
+        <div class="metric-card">
+          <h3>Helpful Tips Shared</h3>
+          <h4 class="metric-number">132</h4>
+          <p>Student-submitted ideas on prompts, tools, and study workflows.</p>
+        </div>
       </div>
-      <div class="metric-card">
-        <h3>Study Sessions</h3>
-        <h4 class="metric-number">24 / week</h4>
-        <p>Peer-led AI study blocks scheduled by students and teachers.</p>
-      </div>
-      <div class="metric-card">
-        <h3>Helpful Tips Shared</h3>
-        <h4 class="metric-number">132</h4>
-        <p>Student-submitted ideas on prompts, tools, and study workflows.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FAQ -->
-  <section class="section section-alt">
-    <h2 class="section-title">Quick Questions</h2>
-    <div class="faq-grid">
-      <div class="faq-card">
-        <h3>Is Aivex an AI bot?</h3>
-        <p>No. Aivex is a learning hub where students learn <strong>about</strong> AI and how to use it.</p>
+    <!-- FAQ -->
+    <section class="section section-alt">
+      <h2 class="section-title">Quick Questions</h2>
+      <div class="faq-grid">
+        <div class="faq-card">
+          <h3>Is Aivex an AI bot?</h3>
+          <p>
+            No. Aivex is a learning hub where students learn
+            <strong>about</strong> AI and how to use it.
+          </p>
+        </div>
+        <div class="faq-card">
+          <h3>What makes it peer-to-peer?</h3>
+          <p>
+            Content, tips, and examples come from students, for students. You
+            learn and teach together.
+          </p>
+        </div>
+        <div class="faq-card">
+          <h3>Is it safe to use AI?</h3>
+          <p>
+            We cover safety, privacy, and ethics so you know when AI is helpful
+            and when it’s not.
+          </p>
+        </div>
       </div>
-      <div class="faq-card">
-        <h3>What makes it peer-to-peer?</h3>
-        <p>Content, tips, and examples come from students, for students. You learn and teach together.</p>
-      </div>
-      <div class="faq-card">
-        <h3>Is it safe to use AI?</h3>
-        <p>We cover safety, privacy, and ethics so you know when AI is helpful and when it’s not.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <footer class="footer">
-    <p>&copy; Aivex – Student AI Learning Hub</p>
-  </footer>
+    <footer class="footer">
+      <p>&copy; Aivex – Student AI Learning Hub</p>
+    </footer>
 
-  <!-- GSAP & Script -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="script.js"></script>
-</body>
+    <!-- GSAP & Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
