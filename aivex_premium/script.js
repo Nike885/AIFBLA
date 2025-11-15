@@ -685,60 +685,65 @@ gsap.utils.toArray(".section").forEach((section, i) => {
 });
 
 // 3D GYROSCOPE ANIMATION
-if (typeof THREE !== 'undefined') {
-  const canvas = document.getElementById('gyroscope-canvas');
+if (typeof THREE !== "undefined") {
+  const canvas = document.getElementById("gyroscope-canvas");
   if (canvas) {
     // Scene setup
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ 
-      canvas: canvas, 
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      canvas.clientWidth / canvas.clientHeight,
+      0.1,
+      1000
+    );
+    const renderer = new THREE.WebGLRenderer({
+      canvas: canvas,
       antialias: true,
-      alpha: true 
+      alpha: true,
     });
-    
+
     renderer.setSize(canvas.clientWidth, canvas.clientHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setClearColor(0x000000, 0);
-    
+
     // Lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
     scene.add(ambientLight);
-    
+
     const pointLight1 = new THREE.PointLight(0xff8c42, 1.5, 100);
     pointLight1.position.set(10, 10, 10);
     scene.add(pointLight1);
-    
+
     const pointLight2 = new THREE.PointLight(0x22d3ee, 1, 100);
     pointLight2.position.set(-10, -10, -10);
     scene.add(pointLight2);
-    
+
     // Create gyroscope structure - multiple interlocking rings
     const gyroscopeGroup = new THREE.Group();
-    
+
     // Main outer ring
     const outerRingGeometry = new THREE.TorusGeometry(2, 0.15, 16, 100);
     const outerRingMaterial = new THREE.MeshStandardMaterial({
       color: 0x1a3a5a,
       metalness: 0.8,
       roughness: 0.2,
-      emissive: 0x000000
+      emissive: 0x000000,
     });
     const outerRing = new THREE.Mesh(outerRingGeometry, outerRingMaterial);
     gyroscopeGroup.add(outerRing);
-    
+
     // Middle ring (rotated 90 degrees)
     const middleRingGeometry = new THREE.TorusGeometry(2, 0.12, 16, 100);
     const middleRingMaterial = new THREE.MeshStandardMaterial({
       color: 0x2a4a6a,
       metalness: 0.9,
       roughness: 0.15,
-      emissive: 0x000000
+      emissive: 0x000000,
     });
     const middleRing = new THREE.Mesh(middleRingGeometry, middleRingMaterial);
     middleRing.rotation.x = Math.PI / 2;
     gyroscopeGroup.add(middleRing);
-    
+
     // Inner ring (rotated 45 degrees)
     const innerRingGeometry = new THREE.TorusGeometry(1.5, 0.1, 16, 100);
     const innerRingMaterial = new THREE.MeshStandardMaterial({
@@ -746,13 +751,13 @@ if (typeof THREE !== 'undefined') {
       metalness: 0.95,
       roughness: 0.1,
       emissive: 0xff8c42,
-      emissiveIntensity: 0.3
+      emissiveIntensity: 0.3,
     });
     const innerRing = new THREE.Mesh(innerRingGeometry, innerRingMaterial);
     innerRing.rotation.z = Math.PI / 4;
     innerRing.rotation.y = Math.PI / 4;
     gyroscopeGroup.add(innerRing);
-    
+
     // Add ribbon-like strands (using torus for compatibility)
     for (let i = 0; i < 8; i++) {
       const angle = (i / 8) * Math.PI * 2;
@@ -762,7 +767,7 @@ if (typeof THREE !== 'undefined') {
         metalness: 0.9,
         roughness: 0.1,
         emissive: i % 2 === 0 ? 0xff8c42 : 0x22d3ee,
-        emissiveIntensity: 0.2
+        emissiveIntensity: 0.2,
       });
       const strand = new THREE.Mesh(strandGeometry, strandMaterial);
       strand.rotation.x = angle;
@@ -770,7 +775,7 @@ if (typeof THREE !== 'undefined') {
       strand.rotation.z = angle * 0.3;
       gyroscopeGroup.add(strand);
     }
-    
+
     // Add additional decorative rings
     for (let i = 0; i < 4; i++) {
       const angle = (i / 4) * Math.PI * 2;
@@ -779,14 +784,14 @@ if (typeof THREE !== 'undefined') {
         color: 0x3a5a7a,
         metalness: 0.85,
         roughness: 0.2,
-        emissive: 0x000000
+        emissive: 0x000000,
       });
       const deco = new THREE.Mesh(decoGeometry, decoMaterial);
       deco.rotation.x = Math.PI / 2;
       deco.rotation.y = angle;
       gyroscopeGroup.add(deco);
     }
-    
+
     // Central core sphere
     const coreGeometry = new THREE.SphereGeometry(0.3, 32, 32);
     const coreMaterial = new THREE.MeshStandardMaterial({
@@ -794,79 +799,87 @@ if (typeof THREE !== 'undefined') {
       metalness: 1,
       roughness: 0,
       emissive: 0xff8c42,
-      emissiveIntensity: 0.5
+      emissiveIntensity: 0.5,
     });
     const core = new THREE.Mesh(coreGeometry, coreMaterial);
     gyroscopeGroup.add(core);
-    
+
     scene.add(gyroscopeGroup);
-    
+
     // Camera position
     camera.position.z = 6;
     camera.position.y = 1;
-    
+
     // Animation variables
     let mouseX = 0;
     let mouseY = 0;
     let targetRotationX = 0;
     let targetRotationY = 0;
-    
+
     // Mouse interaction
-    document.addEventListener('mousemove', (e) => {
+    document.addEventListener("mousemove", (e) => {
       mouseX = (e.clientX / window.innerWidth) * 2 - 1;
       mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
       targetRotationY = mouseX * 0.5;
       targetRotationX = mouseY * 0.5;
     });
-    
+
     // Animation loop
     const animate = () => {
       requestAnimationFrame(animate);
-      
+
       // Smooth rotation following mouse
-      gyroscopeGroup.rotation.y += (targetRotationY - gyroscopeGroup.rotation.y) * 0.05;
-      gyroscopeGroup.rotation.x += (targetRotationX - gyroscopeGroup.rotation.x) * 0.05;
-      
+      gyroscopeGroup.rotation.y +=
+        (targetRotationY - gyroscopeGroup.rotation.y) * 0.05;
+      gyroscopeGroup.rotation.x +=
+        (targetRotationX - gyroscopeGroup.rotation.x) * 0.05;
+
       // Continuous spinning in all directions
       gyroscopeGroup.rotation.y += 0.005;
       gyroscopeGroup.rotation.x += 0.003;
       gyroscopeGroup.rotation.z += 0.002;
-      
+
       // Individual ring rotations
       outerRing.rotation.y += 0.01;
       middleRing.rotation.x += 0.008;
       innerRing.rotation.z += 0.012;
-      
+
       // Rotate individual strands
       gyroscopeGroup.children.forEach((child, index) => {
-        if (child.type === 'Mesh' && child !== outerRing && child !== middleRing && child !== innerRing && child !== core) {
+        if (
+          child.type === "Mesh" &&
+          child !== outerRing &&
+          child !== middleRing &&
+          child !== innerRing &&
+          child !== core
+        ) {
           child.rotation.x += 0.005 * (index % 2 === 0 ? 1 : -1);
           child.rotation.y += 0.007;
           child.rotation.z += 0.004;
         }
       });
-      
+
       // Core pulse
       const pulse = Math.sin(Date.now() * 0.002) * 0.1 + 1;
       core.scale.set(pulse, pulse, pulse);
-      
+
       renderer.render(scene, camera);
     };
-    
+
     // Handle resize
     const handleResize = () => {
       const container = canvas.parentElement;
       const width = container.clientWidth;
       const height = container.clientHeight;
-      
+
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
       renderer.setSize(width, height);
     };
-    
-    window.addEventListener('resize', handleResize);
+
+    window.addEventListener("resize", handleResize);
     handleResize();
-    
+
     // Start animation
     animate();
   }
