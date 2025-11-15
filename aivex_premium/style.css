@@ -13,6 +13,10 @@
   --text: #f9fafb;
   --muted: #94a3b8;
   --border: rgba(148, 163, 184, 0.4);
+  --quantum-gold: #ff8c42;
+  --quantum-orange: #ff6b35;
+  --quantum-bg: #0a1628;
+  --quantum-dark: #050a15;
 }
 
 body {
@@ -150,6 +154,121 @@ body {
   grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
   gap: 40px;
   align-items: center;
+}
+
+/* Quantum-style Hero */
+.quantum-hero {
+  position: relative;
+  min-height: 90vh;
+  padding: 120px 7% 100px;
+  background: linear-gradient(180deg, var(--quantum-bg) 0%, var(--quantum-dark) 100%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1400px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 5;
+}
+
+.hero-title-large {
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 30px 0;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.accent-dot {
+  color: var(--quantum-gold);
+  position: relative;
+}
+
+.accent-dot::after {
+  content: ".";
+  color: var(--quantum-gold);
+  display: inline-block;
+  margin-left: 4px;
+}
+
+.hero-subtitle-large {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.hero-3d-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#gyroscope-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: radial-gradient(ellipse at bottom, rgba(10, 22, 40, 0.8) 0%, transparent 70%);
+  z-index: 1;
+}
+
+.hero-wave::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg width='1200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,100 Q300,50 600,100 T1200,100 L1200,200 L0,200 Z' fill='%23050a15'/%3E%3C/svg%3E") no-repeat bottom;
+  background-size: cover;
+  opacity: 0.6;
+}
+
+.quantum-nav {
+  background: rgba(10, 22, 40, 0.95);
+  backdrop-filter: blur(20px);
+}
+
+.quantum-nav .nav-logo {
+  color: var(--quantum-gold);
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.quantum-nav .nav-links a {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.quantum-nav .nav-links a:hover {
+  color: var(--quantum-gold);
 }
 
 .hero-title {
@@ -864,5 +983,17 @@ body {
   }
   .dashboard-stats {
     grid-template-columns: 1fr;
+  }
+  .hero-content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .hero-3d-container {
+    height: 400px;
+    order: -1;
+  }
+  .quantum-hero {
+    min-height: auto;
+    padding: 100px 7% 80px;
   }
 }
