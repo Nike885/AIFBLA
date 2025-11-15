@@ -1,5 +1,13 @@
 gsap.registerPlugin(ScrollTrigger);
 
+// PARALLAX ORBS with scroll
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+  gsap.to(".orb-1", { y: scrollY * 0.5, duration: 0.1, overwrite: "auto" });
+  gsap.to(".orb-2", { y: scrollY * -0.3, duration: 0.1, overwrite: "auto" });
+  gsap.to(".orb-3", { y: scrollY * 0.4, duration: 0.1, overwrite: "auto" });
+});
+
 // INTRO OVERLAY + NAV + HERO
 window.addEventListener("load", () => {
   const tl = gsap.timeline();
@@ -206,4 +214,158 @@ document.querySelectorAll('.nav-links a[href^="#"]').forEach((link) => {
       behavior: "smooth",
     });
   });
+});
+
+// CARD HOVER ANIMATIONS
+document.querySelectorAll(".track-card").forEach((card) => {
+  card.addEventListener("mouseenter", () => {
+    gsap.to(card, {
+      y: -10,
+      boxShadow: "0 20px 40px rgba(34, 211, 238, 0.3)",
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  });
+  card.addEventListener("mouseleave", () => {
+    gsap.to(card, {
+      y: 0,
+      boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  });
+});
+
+// METRIC CARDS HOVER
+document.querySelectorAll(".metric-card").forEach((card) => {
+  card.addEventListener("mouseenter", () => {
+    gsap.to(card, {
+      scale: 1.05,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  });
+  card.addEventListener("mouseleave", () => {
+    gsap.to(card, {
+      scale: 1,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  });
+});
+
+// TIMELINE BUBBLE ANIMATION
+gsap.utils.toArray(".timeline-item .bubble").forEach((bubble, i) => {
+  gsap.to(bubble, {
+    scrollTrigger: {
+      trigger: bubble,
+      start: "top 75%",
+      toggleActions: "play none none reverse",
+    },
+    scale: 1.2,
+    duration: 0.4,
+    ease: "back.out(2)",
+    delay: i * 0.1,
+  });
+});
+
+// PROGRESS RING ANIMATION
+gsap.to(".progress-ring", {
+  scrollTrigger: {
+    trigger: ".progress-ring",
+    start: "top 75%",
+    toggleActions: "play none none reverse",
+  },
+  duration: 1.5,
+  ease: "power2.out",
+  onStart: function () {
+    const ring = document.querySelector(".progress-ring");
+    if (!ring) return;
+    ring.style.backgroundImage =
+      "conic-gradient(#22d3ee 0deg, #22d3ee 245deg, rgba(34, 211, 238, 0.1) 245deg)";
+  },
+});
+
+// NODE LINES ANIMATION
+const svgLines = document.querySelector(".node-lines");
+if (svgLines) {
+  gsap.to(".node-lines line", {
+    scrollTrigger: {
+      trigger: ".ai-node-grid",
+      start: "top 60%",
+      toggleActions: "play none none reverse",
+    },
+    strokeDasharray: 200,
+    strokeDashoffset: 0,
+    duration: 1.2,
+    stagger: 0.15,
+    ease: "power2.inOut",
+  });
+}
+
+// BUTTON HOVER GLOW
+document.querySelectorAll(".btn").forEach((btn) => {
+  btn.addEventListener("mouseenter", () => {
+    gsap.to(btn, {
+      boxShadow: "0 0 20px rgba(34, 211, 238, 0.6)",
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  });
+  btn.addEventListener("mouseleave", () => {
+    gsap.to(btn, {
+      boxShadow: "none",
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  });
+});
+
+// SCROLL REVEAL for sections with scale
+gsap.utils.toArray(".section-title").forEach((title) => {
+  gsap.from(title, {
+    scrollTrigger: {
+      trigger: title,
+      start: "top 80%",
+      toggleActions: "play none none reverse",
+    },
+    opacity: 0,
+    y: 20,
+    scale: 0.95,
+    duration: 0.6,
+    ease: "power2.out",
+  });
+});
+
+// FAQ CARDS WITH STAGGER
+gsap.utils.toArray(".faq-card").forEach((item, i) => {
+  gsap.to(item, {
+    scrollTrigger: { trigger: item, start: "top 88%" },
+    opacity: 1,
+    y: 0,
+    duration: 0.5,
+    delay: i * 0.04,
+    ease: "power2.out",
+  });
+});
+
+// HEADER STICK ON SCROLL
+window.addEventListener("scroll", () => {
+  const nav = document.querySelector(".nav");
+  if (!nav) return;
+  if (window.scrollY > 50) {
+    gsap.to(nav, {
+      boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
+      duration: 0.3,
+      ease: "power2.out",
+      overwrite: "auto",
+    });
+  } else {
+    gsap.to(nav, {
+      boxShadow: "none",
+      duration: 0.3,
+      ease: "power2.out",
+      overwrite: "auto",
+    });
+  }
 });
